@@ -1,18 +1,24 @@
 <!DOCTYPE html> 
 <html lang="ru">
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">          
-    <body>       
-      <header>
-        {% include 'includes/header.html' %}
-      </header>
-      <main>
-        {% block content %}
-          Контент не подвезли :(
-        {% endblock %}
-      </main>
-      <footer>
-        {% include 'includes/footer.html' %} 
-      </footer>
-    </body>
+  {% load static %}          
+  <head>
+    {% include 'includes/meta.html' %}       
+    {% block title %}
+    {% endblock %}
+  </head>
+  <body>       
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
+    <main>
+      <div class="container py-5">     
+      {% block content %}
+        Контент не подвезли :(
+      {% endblock %}
+      </div>
+    </main>
+    <footer>
+      {% include 'includes/footer.html' %} 
+    </footer>
+  </body>
 </html>

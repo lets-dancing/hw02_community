@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Group, Post
 
-POSTS=10
+POSTS = 10
+
 
 def index(request):
     posts = Post.objects.order_by('-pub_date')[:POSTS]

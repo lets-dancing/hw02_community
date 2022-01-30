@@ -3,13 +3,10 @@
   {% load static %}          
   <head>
     {% include 'includes/meta.html' %}       
-    {% block title %}
-    {% endblock %}
+    <title>{% block tittle %}{% endblock %}</title> 
   </head>
-  <body>       
-    <header>
+  <body>
       {% include 'includes/header.html' %}
-    </header>
     <main>
       <div class="container py-5">     
       {% block content %}
@@ -17,8 +14,6 @@
       {% endblock %}
       </div>
     </main>
-    <footer>
-      {% include 'includes/footer.html' %} 
-    </footer>
+      {% include 'includes/footer.html' %}
   </body>
 </html>

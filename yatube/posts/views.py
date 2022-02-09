@@ -29,3 +29,25 @@ def group_posts(request, slug):
         'page_obj': page_obj,
     }
     return render(request, 'posts/group_list.html', context)
+
+
+def profile(request, username):
+    post_list = username.posts.all()
+    paginator = Paginator(post_list, POSTS_COUNT)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj,
+    }
+    return render(request, 'posts/profile.html', context)
+
+
+def post_detail(request, post_id):
+    post_list = post_id.posts.all()
+    paginator = Paginator(post_list, POSTS_COUNT)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj,
+    }
+    return render(request, 'posts/post_detail.html', context)

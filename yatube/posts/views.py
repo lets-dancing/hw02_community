@@ -1,4 +1,3 @@
-from tokenize import group
 from django.core.paginator import Paginator
 
 from django.shortcuts import get_object_or_404, render
@@ -47,9 +46,10 @@ def profile(request, username):
 
 
 def post_detail(request, post_id):
-    post = get_object_or_404(Post, post_id=post_id)
-    id = post.objects.get('pk')
+    post = get_object_or_404(Post, pk=post_id)
+    pk = Post.objects.select_related('pk')
     context = {
-        'id': id,
+        'post': post,
+        'pk': pk,
     }
     return render(request, 'posts/post_detail.html', context)

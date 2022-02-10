@@ -17,11 +17,10 @@
   <p>
     {{ post.text }} 
   </p>
-  <a href={% url 'posts:post_detail' post.group.id %}>подробная информация</a>
+  <a href={% url 'posts:post_detail' post.group.pk %}>подробная информация</a>
 </article>       
 <a href={% url 'posts:group_list' post.group.slug %}>все записи группы</a>        
-<hr>
-<!-- Остальные посты. после последнего нет черты -->
+{% if not forloop.last %}<hr>{% endif %}
 {% include 'posts/includes/paginator.html' %} 
 {% endfor %}
 {% endblock %}
